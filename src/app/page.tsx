@@ -1,66 +1,45 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div style={{
+      minHeight: "100vh",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: "2rem",
+      background: "var(--color-surface)"
+    }}>
+      <h1 style={{ fontSize: "2.5rem", fontWeight: "bold", color: "var(--color-primary)" }}>
+        Clockwise
+      </h1>
+
+      <div style={{ display: "flex", gap: "2rem" }}>
+        <Link
+          href="/wms"
+          className="card"
+          style={{ width: "300px", textAlign: "center", textDecoration: "none", color: "inherit", cursor: "pointer", transition: "transform 0.2s" }}
+        >
+          <h2 style={{ marginBottom: "1rem" }}>Manager Portal (WMS)</h2>
+          <p style={{ color: "var(--color-text-muted)" }}>
+            Access Employee Management, Scheduling, and Reports.
           </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+          <div className="btn btn-primary" style={{ marginTop: "1rem", width: "100%" }}>Login as Manager</div>
+        </Link>
+
+        <Link
+          href="/timeclock"
+          className="card"
+          style={{ width: "300px", textAlign: "center", textDecoration: "none", color: "inherit", cursor: "pointer", transition: "transform 0.2s" }}
+        >
+          <h2 style={{ marginBottom: "1rem" }}>TimeClock Kiosk</h2>
+          <p style={{ color: "var(--color-text-muted)" }}>
+            Employee Clock-in/out, Schedule View, and Tasks.
+          </p>
+          <div className="btn" style={{ marginTop: "1rem", width: "100%", background: "var(--color-secondary)", color: "white" }}>Launch Kiosk</div>
+        </Link>
+      </div>
     </div>
   );
 }
